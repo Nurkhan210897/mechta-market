@@ -1,0 +1,14 @@
+.btn {
+    &.btn-blue {
+        background: linear-gradient(279.56deg, #65B3E4 15.15%, rgba(120, 161, 187, 0) 171.55%);
+        border-radius: 50px;
+        padding: 18px 48px 18px;
+        border: none;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 28px;
+        cursor: pointer;
+    }
+}
