@@ -5,40 +5,54 @@
         <h3 class="title">Delivery cost</h3>
         <p>Enter name of the city to count delivery cost</p>
       </div>
-
-      <form action="">
-        <input
-          type="text"
-          v-model="searchVal"
-          placeholder="Enter name of the city"
-        />
-        <button type="submit" v-if="!error || !getDeliveries.length" @click.prevent="sendRequest" class="btn btn-blue">
+      <pre>{{ searchVal.length }}</pre>
+      <form action="" @submit.prevent="sendDeliveryTypes">
+        <input type="text" v-model="searchVal" placeholder="Enter name of the city" />
+        <button
+          type="submit"
+          v-if="!searchVal.length || (!error && getDeliveryTypes.length)"
+          class="btn btn-blue"
+        >
           ENTER
         </button>
         <span class="error-form" v-if="error" @click="searchVal = ''">x</span>
-        <span class="success-form" v-if="getDeliveries.length" @click="searchVal = ''">x</span>
+        <span class="success-form" v-if="isValid" @click="searchVal = ''">x</span>
       </form>
-       <span class="error" v-if="error">We didn’t found such city. Please check spelling</span>
+      {{ isValid }}
+      <span class="error" v-if="error"
+        >We didn’t found such city. Please check spelling</span
+      >
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
   data: () => ({
     deliveryMethods: null,
     searchVal: "",
   }),
   computed: {
-    ...mapGetters(["getDeliveries"]),
+    ...mapGetters(["getDeliveryTypes"]),
     error() {
       return this.$store.state.error;
     },
+    isValid() {
+      if (this.getDeliveryTypes.length && !this.error) {
+        return true;
+      }
+    },
+    Valid() {},
   },
   methods: {
-    async sendRequest() {
-      this.$store.dispatch("fetchDeliveries", this.searchVal);
+    ...mapActions({
+      fetchDeliveryTypes: "fetchDeliveryTypes",
+    }),
+    sendDeliveryTypes() {
+      if (this.searchVal.length) {
+        this.fetchDeliveryTypes(this.searchVal);
+      }
     },
   },
 };

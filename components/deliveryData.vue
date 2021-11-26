@@ -1,9 +1,11 @@
 <template>
   <div class="delivery-data">
-    <Banner v-if="!loading && !getDeliveries.length" />
+    <Banner v-if="!loading && !getDeliveryTypes.length" />
     <Loader v-if="loading && !error" />
-    <DeliveryCard v-if="getDeliveries.length" :deliveryData="getDeliveries" />
-    <span class="error" v-if="error">We didn’t found such city. Please check spelling</span>
+    <DeliveryCard v-if="getDeliveryTypes.length" :deliveryData="getDeliveryTypes" />
+    <span class="error" v-if="error"
+      >We didn’t found such city. Please check spelling</span
+    >
   </div>
 </template>
 
@@ -15,7 +17,7 @@ export default {
     type: "",
   }),
   computed: {
-    ...mapGetters(["getDeliveries"]),
+    ...mapGetters(["getDeliveryTypes"]),
     loading() {
       return this.$store.state.loading;
     },

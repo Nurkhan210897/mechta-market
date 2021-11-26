@@ -1,17 +1,17 @@
 export const state = () => ({
-    deliveries: [],
+    deliveryTypes: [],
     loading: false,
-    error: false
+    error: null
 })
 
 export const getters = {
-    getDeliveries: state => state.deliveries,
+    getDeliveryTypes: state => state.deliveryTypes,
 }
 
 export const mutations = {
-    setDeliveries: (state, payload) => {
-        state.deliveries = [];
-        state.deliveries = payload
+    setDeliveryTypes: (state, payload) => {
+        state.deliveryTypes = [];
+        state.deliveryTypes = payload
     },
     setLoading: (state, payload) => {
         state.loading = payload
@@ -22,7 +22,7 @@ export const mutations = {
 }
 
 export const actions = {
-    async fetchDeliveries({ commit }, searchVal) {
+    async fetchDeliveryTypes({ commit }, searchVal) {
         commit('setLoading', true)
         const url = `https://qvjgl.mocklab.io/delivery/check?search=${searchVal}`;
         try {
@@ -31,10 +31,10 @@ export const actions = {
             });
             const deliveryTypes = await response.json();
             commit('setLoading', false)
-            commit('setDeliveries', deliveryTypes)
-            commit('setError', true)
+            commit('setDeliveryTypes', deliveryTypes)
+            commit('setError', false)
         } catch (error) {
-            commit('setError', error)
+            commit('setError', true)
         }
     },
 }
