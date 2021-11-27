@@ -12,10 +12,6 @@
       :deliveryData="item"
     />
     <ErrorForm errorText="We didn’t found such city. Please check spelling" />
-
-    <!-- <span class="error" v-if="error"
-      >We didn’t found such city. Please check spelling</span
-    > -->
   </div>
 </template>
 
