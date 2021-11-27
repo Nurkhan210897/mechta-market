@@ -12,9 +12,7 @@
       <span class="error-form" v-if="error" @click="clear">x</span>
       <span class="success-form" v-if="getDeliveryTypes.length" @click="clear">x</span>
     </form>
-    <span class="error" v-if="error"
-      >We didn’t found such city. Please check spelling</span
-    >
+    <ErrorForm errorText="We didn’t found such city. Please check spelling" />
   </div>
 </template>
 
@@ -30,12 +28,6 @@ export default {
     error() {
       return this.$store.state.error;
     },
-    isValid() {
-      if (this.getDeliveryTypes.length && !this.error) {
-        return true;
-      }
-    },
-    Valid() {},
   },
   methods: {
     ...mapMutations(["clearDeliveryTypes"]),

@@ -12,7 +12,6 @@ export const getters = {
 
 export const mutations = {
     setDeliveryTypes: (state, payload) => {
-        console.log(payload);
         state.deliveryTypes = [];
         state.deliveryTypes = payload
     },

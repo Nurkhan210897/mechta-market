@@ -45,10 +45,6 @@ export default {
       this.searchVal = "";
     },
   },
-
-  mounted() {
-    console.log(this.$isMobile());
-  },
 };
 </script>
 

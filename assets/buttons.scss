@@ -1,8 +1,9 @@
 .btn {
     &.btn-blue {
+        height: 100%;
         background: linear-gradient(279.56deg, #65B3E4 15.15%, rgba(120, 161, 187, 0) 171.55%);
         border-radius: 50px;
-        padding: 18px 48px 18px;
+        padding: 0 48px;
         border: none;
         color: #fff;
         text-transform: uppercase;

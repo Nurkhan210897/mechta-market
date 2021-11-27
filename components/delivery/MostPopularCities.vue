@@ -4,7 +4,7 @@
     <div class="popular-list">
       <ul>
         <li v-for="(city, index) in cicies" :key="index">
-          <p>{{ city }}</p>
+          <nuxt-link to="/">{{ city }}</nuxt-link>
         </li>
       </ul>
     </div>
@@ -35,17 +35,26 @@ export default {
   margin-bottom: 42px;
 }
 .popular-list {
-  padding: 0 15px;
   max-height: 255px;
   ul {
     columns: 2;
     li {
-      font-style: normal;
-      font-weight: normal;
-      font-size: 20px;
-      line-height: 23px;
-      color: rgba(40, 48, 68, 0.5);
       margin-bottom: 34px;
+      a {
+        padding: 0 15px 14px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 23px;
+        color: rgba(40, 48, 68, 0.5);
+        font-family: "Roboto", sans-serif;
+        text-decoration: none;
+        border-bottom: 1px solid #e9f0eb;
+        &:hover {
+          color: #000;
+          border-color: #000;
+        }
+      }
     }
   }
 }

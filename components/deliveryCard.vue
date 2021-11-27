@@ -1,19 +1,11 @@
 <template>
-  <div class="delivery-card_wrapper">
-    <div
-      v-for="(item, index) in deliveryData"
-      :key="index"
-      class="delivery-card"
-      :class="{ 'not-available': !item.available }"
-      @click="checkDeliveryType(item.type)"
-    >
-      <div>
-        <p class="delivery-card_type">{{ item.type }}</p>
-        <p class="delivery-card_price">{{ item.price }}$</p>
-      </div>
-      <DeliveryIcon :type="item.type" />
-      <div class="check" v-if="item.type == checkedDeliveryType"></div>
+  <div class="delivery-card" :class="{ 'not-available': !deliveryData.available }">
+    <div class="delivery-card_body">
+      <p class="delivery-card_type">{{ deliveryData.type }}</p>
+      <p class="delivery-card_price">{{ deliveryData.price }}$</p>
     </div>
+    <DeliveryIcon :type="deliveryData.type" />
+    <div class="check" v-if="selectedType === deliveryData.type"></div>
   </div>
 </template>
 
@@ -21,39 +13,34 @@
 export default {
   props: {
     deliveryData: {
-      type: Array,
-      default: () => [],
+      type: Object,
+      default: () => {},
     },
-  },
-  data: () => ({
-    checkedDeliveryType: "",
-  }),
-  methods: {
-    checkDeliveryType(type) {
-      console.log(type);
-      this.checkedDeliveryType = type;
+    selectedType: {
+      type: String,
+      default: () => "",
     },
   },
 };
 </script>
 
 <style lang="scss">
-.delivery-card_wrapper {
+.delivery-card {
   width: 100%;
   max-width: 525px;
-}
-.delivery-card {
   background: #ffffff;
   border: 1px solid #e9f0eb;
   box-sizing: border-box;
   border-radius: 22px;
-  padding: 30px 38px 18px;
   margin-bottom: 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   &:last-child {
     margin-bottom: 0;
+  }
+  &_body {
+    padding: 30px 38px 18px;
   }
   &_type {
     font-style: normal;
@@ -72,12 +59,12 @@ export default {
   }
   &.not-available {
     opacity: 0.5;
+    pointer-events: none;
   }
 }
 .check {
   display: block;
   width: 72px;
-  margin: -30px -38px -50px;
   height: 100%;
   background: linear-gradient(310.04deg, #65b3e4 23.89%, rgba(255, 255, 255, 0) 100%);
   filter: drop-shadow(0px 0px 20px rgba(120, 161, 187, 0.3));
