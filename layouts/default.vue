@@ -1,15 +1,11 @@
 <template>
- <div class="wrapper">
-   <Nuxt/>
- </div>
+  <div class="wrapper">
+    <Nuxt />
+  </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
-<style>
-
-</style>
+<style></style>

@@ -1,4 +1,5 @@
 export default {
+    ssr: false,
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
         title: 'mechta-market',
@@ -22,7 +23,9 @@ export default {
     ],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-    plugins: [],
+    plugins: [
+        { src: "@/plugins/flags.js", mode: "client" }
+    ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
     components: true,

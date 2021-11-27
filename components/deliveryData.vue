@@ -45,4 +45,9 @@ export default {
   justify-content: center;
   padding: 138px 0;
 }
+@media only screen and (max-width: 768px) {
+  .delivery-data {
+    border-radius: 40px 40px 0px 0px;
+  }
+}
 </style>

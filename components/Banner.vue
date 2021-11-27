@@ -1,6 +1,6 @@
 <template>
-  <div class="loading">
-    <span class="logo-data">Fast Service </span>
+  <div class="banner">
+    <span class="logo-text">Fast Service </span>
     <img src="@/static/images/free-shipping.png" alt="" />
   </div>
 </template>
@@ -10,12 +10,11 @@ export default {};
 </script>
 
 <style lang="scss">
-.loading {
+.banner {
   position: relative;
-  .logo-data {
+  .logo-text {
     width: 100%;
     max-width: 323px;
-    font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 96px;
@@ -24,6 +23,24 @@ export default {};
     position: absolute;
     right: -120px;
     top: -100px;
+  }
+  img {
+    width: 100%;
+    max-width: 550px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .banner {
+    img {
+      width: 100%;
+      max-width: 180px;
+    }
+    .logo-text {
+      top: -40px;
+      font-size: 36px;
+      line-height: 42px;
+    }
   }
 }
 </style>

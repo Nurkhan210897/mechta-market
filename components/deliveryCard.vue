@@ -56,7 +56,6 @@ export default {
     margin-bottom: 0;
   }
   &_type {
-    font-family: "Roboto-Bold";
     font-style: normal;
     font-weight: bold;
     font-size: 36px;
@@ -65,7 +64,6 @@ export default {
     margin-bottom: 90px;
   }
   &_price {
-    font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 50px;
@@ -81,11 +79,7 @@ export default {
   width: 72px;
   margin: -30px -38px -50px;
   height: 100%;
-  background: linear-gradient(
-    310.04deg,
-    #65b3e4 23.89%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(310.04deg, #65b3e4 23.89%, rgba(255, 255, 255, 0) 100%);
   filter: drop-shadow(0px 0px 20px rgba(120, 161, 187, 0.3));
   border-radius: 22px;
 }

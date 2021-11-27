@@ -9,9 +9,7 @@
 
 <script>
 export default {
-  computed:{
-
-  }
+  computed: {},
 };
 </script>
 
