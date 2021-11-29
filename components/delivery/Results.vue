@@ -1,6 +1,6 @@
 <template>
   <div class="delivery-data">
-    <Banner v-if="!loading && !getDeliveryTypes.length" />
+    <DeliveryBanner v-if="!loading && !getDeliveryTypes.length" />
     <Loader v-if="loading && !error" />
     <DeliveryCard
       v-for="(item, index) in getDeliveryTypes"
@@ -56,6 +56,8 @@ export default {
 @media only screen and (max-width: 768px) {
   .delivery-data {
     border-radius: 40px 40px 0px 0px;
+    padding: 25px;
+    display: block;
   }
 }
 </style>

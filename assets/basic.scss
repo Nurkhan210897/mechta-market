@@ -55,10 +55,22 @@
     cursor: pointer;
 }
 
+.silver-text {
+    color: rgba(40, 48, 68, 0.5);
+}
+
 ul {
     padding: 0;
     margin: 0;
     li {
         list-style-type: none;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .container {
+        width: auto;
+        margin: 0;
+        padding: 0 25px;
     }
 }

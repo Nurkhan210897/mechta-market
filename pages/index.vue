@@ -1,19 +1,16 @@
 <template>
   <div class="main-wrapper">
     <div class="delivery-wrapper">
-      <div class="container">
-        <div class="logo">
-          <img src="@/static/icons/logo.svg" alt="" />
-          <span>FastService</span>
-        </div>
+      <LayoutHeader />
+      <div class="delivery container">
+        <DeliveryDescription />
+        <DeliverySearch />
+        <DeliveryMostPopularCities />
       </div>
-      <Delivery />
-      <div class="container">
-        <Footer v-if="!$isMobile()" />
-      </div>
+      <LayoutFooter v-if="!$isMobile()" />
     </div>
-    <DeliveryData />
-    <Footer v-if="$isMobile()" />
+    <DeliveryResults />
+    <LayoutFooter v-if="$isMobile()" />
   </div>
 </template>
 
@@ -45,6 +42,25 @@ export default {};
     flex-direction: column;
     justify-content: space-between;
     padding: 20px 0 28px;
+  }
+}
+.delivery {
+  margin-bottom: 42px;
+}
+
+@media only screen and (max-width: 576px) {
+  .delivery {
+    margin: 50px 0 0;
+    &_descr {
+      .title {
+        font-size: 36px;
+        line-height: 42px;
+      }
+      p {
+        font-size: 16px;
+        line-height: 19px;
+      }
+    }
   }
 }
 @media only screen and (max-width: 768px) {

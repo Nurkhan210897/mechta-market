@@ -1,7 +1,9 @@
 <template>
-  <div class="banner">
-    <span class="logo-text">Fast Service </span>
-    <img src="@/static/images/free-shipping.png" alt="" />
+  <div class="container">
+    <div class="banner">
+      <span class="logo-text">Fast Service </span>
+      <img src="@/static/images/free-shipping.png" alt="" />
+    </div>
   </div>
 </template>
 
@@ -23,6 +25,7 @@ export default {};
     position: absolute;
     right: -120px;
     top: -100px;
+    font-family: "Roboto", sans-serif;
   }
   img {
     width: 100%;
@@ -32,10 +35,9 @@ export default {};
 
 @media only screen and (max-width: 768px) {
   .banner {
-    img {
-      width: 100%;
-      max-width: 180px;
-    }
+    width: 100%;
+    max-width: 180px;
+    margin: 0 auto;
     .logo-text {
       top: -40px;
       font-size: 36px;

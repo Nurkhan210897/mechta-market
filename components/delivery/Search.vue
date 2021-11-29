@@ -1,7 +1,7 @@
 <template>
   <div class="search-form">
     <form action="" @submit.prevent="sendDeliveryTypes">
-      <input type="text" v-model="searchVal" placeholder="Enter name of the city" />
+      <input type="text" v-model="city" placeholder="Enter name of the city" />
       <button
         type="submit"
         v-if="!error && !getDeliveryTypes.length"
@@ -9,8 +9,12 @@
       >
         ENTER
       </button>
-      <span class="error-form" v-if="error" @click="clear">x</span>
-      <span class="success-form" v-if="getDeliveryTypes.length" @click="clear">x</span>
+      <span class="error-form" v-if="error" @click="clear"
+        ><i class="fas fa-times"></i
+      ></span>
+      <span class="success-form" v-if="getDeliveryTypes.length" @click="clear"
+        ><i class="fas fa-times"></i
+      ></span>
     </form>
     <ErrorForm errorText="We didn’t found such city. Please check spelling" />
   </div>
@@ -20,8 +24,7 @@
 import { mapGetters, mapActions, mapMutations } from "vuex";
 export default {
   data: () => ({
-    deliveryMethods: null,
-    searchVal: "",
+    city: "",
   }),
   computed: {
     ...mapGetters(["getDeliveryTypes"]),
@@ -35,13 +38,13 @@ export default {
       fetchDeliveryTypes: "fetchDeliveryTypes",
     }),
     sendDeliveryTypes() {
-      if (this.searchVal.length) {
-        this.fetchDeliveryTypes(this.searchVal);
+      if (this.city.length) {
+        this.fetchDeliveryTypes(this.city);
       }
     },
     clear() {
       this.clearDeliveryTypes();
-      this.searchVal = "";
+      this.city = "";
     },
   },
 };
@@ -49,22 +52,24 @@ export default {
 
 <style lang="scss" scoped>
 .search-form {
-  margin: 80px 0 42px;
+  margin: 80px 0 15px;
   form {
-    margin-bottom: 15px;
     display: flex;
     align-items: center;
     position: relative;
+    border: 1px solid #e9f0eb;
+    margin-bottom: 15px;
+    border-radius: 50px;
     input {
       background: #ffffff;
-      border: 1px solid #e9f0eb;
       box-sizing: border-box;
-      border-radius: 50px;
+      border: none;
       height: 63px;
       width: 100%;
       padding: 16px 184px 16px 36px;
       font-size: 24px;
       line-height: 28px;
+      border-radius: 50px;
       &:focus {
         outline: none;
       }
@@ -79,6 +84,9 @@ export default {
       position: absolute;
       right: 0;
       top: 0;
+    }
+    &:focus {
+      border-color: #000;
     }
   }
 }
